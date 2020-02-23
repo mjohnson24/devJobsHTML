@@ -25,7 +25,7 @@ const imagemin = require('gulp-imagemin');
 
 const cssMinFile = 'style.min.css';
 const jsMinFile = 'script.min.js';
-const jsVendorMinFile = 'vendors.min.js';
+const jsVendorMinFile = 'app.min.js';
 const srcImgs = 'img/*.{jpg,jpeg,png,gif,svg}';
 const srcJS = [
 	'node_modules/jquery/dist/jquery.js',
