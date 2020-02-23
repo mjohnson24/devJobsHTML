@@ -1,0 +1,26 @@
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# NodeJS specific #
+node_modules
+package-lock.json
+.nyc_output/
+coverage/
+npm-debug.log
+test/*.log
+
+#GULP FILES
+gulpfile.backup.js
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
+.DS_Store
