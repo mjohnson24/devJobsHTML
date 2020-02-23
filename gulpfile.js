@@ -27,12 +27,13 @@ const cssMinFile = 'style.min.css';
 const jsMinFile = 'script.min.js';
 const jsVendorMinFile = 'app.min.js';
 const srcImgs = 'img/*.{jpg,jpeg,png,gif,svg}';
-const srcJS = [
-	'node_modules/jquery/dist/jquery.js',
-	'node_modules/popper.js/dist/popper.js',
-	'node_modules/bootstrap/dist/js/bootstrap.js',
-	'js/**/*.js',
-];
+// const srcJS = [
+// 	'node_modules/jquery/dist/jquery.js',
+// 	'node_modules/popper.js/dist/popper.js',
+// 	'node_modules/bootstrap/dist/js/bootstrap.js',
+// 	'js/**/*.js',
+// ];
+const srcJS = ['js/**/*.js'];
 
 const paths = {
 	src: 'src/',
@@ -92,14 +93,18 @@ function scripts() {
 		.pipe(gulp.dest(paths.dist + 'js/'));
 }
 
-function scriptsVendors() {
-	return gulp
-		.src(['node_modules/jquery/dist/jquery.min.js'])
-		.pipe(sourcemaps.init())
-		.pipe(concat(jsVendorMinFile))
-		.pipe(sourcemaps.write('/maps/'))
-		.pipe(gulp.dest(paths.dist + 'js/'));
-}
+// function scriptsVendors() {
+// 	return gulp
+// 		.src([
+// 			'node_modules/jquery/dist/jquery.min.js',
+// 			'node_modules/popper.js/dist/popper.js',
+// 			'node_modules/bootstrap/dist/js/bootstrap.js',
+// 		])
+// 		.pipe(sourcemaps.init())
+// 		.pipe(concat(jsVendorMinFile))
+// 		.pipe(sourcemaps.write('/maps/'))
+// 		.pipe(gulp.dest(paths.dist + 'js/'));
+// }
 
 function htmls() {
 	return gulp
@@ -136,23 +141,33 @@ function serve() {
 
 exports.styles = styles;
 exports.scripts = scripts;
-exports.scriptsVendors = scriptsVendors;
+// exports.scriptsVendors = scriptsVendors;
 exports.htmls = htmls;
 exports.images = images;
 exports.svgSprite = svgSprite;
 exports.clean = clean;
 exports.watch = watch;
 
-gulp.task(
-	'dist',
-	gulp.series(clean, gulp.parallel(styles, svgSprite, scripts, scriptsVendors, htmls, images))
-);
+// gulp.task(
+// 	'dist',
+// 	gulp.series(clean, gulp.parallel(styles, svgSprite, scripts, scriptsVendors, htmls, images))
+// );
+gulp.task('dist', gulp.series(clean, gulp.parallel(styles, svgSprite, scripts, htmls, images)));
+
+// gulp.task(
+// 	'default',
+// 	gulp.series(
+// 		clean,
+// 		gulp.parallel(styles, svgSprite, scripts, scriptsVendors, htmls, images),
+// 		gulp.parallel(watch, serve)
+// 	)
+// );
 
 gulp.task(
 	'default',
 	gulp.series(
 		clean,
-		gulp.parallel(styles, svgSprite, scripts, scriptsVendors, htmls, images),
+		gulp.parallel(styles, svgSprite, scripts, htmls, images),
 		gulp.parallel(watch, serve)
 	)
 );
