@@ -1,0 +1,23 @@
+.dropdown-menu {
+    margin-top: .65rem;
+    border-top: 2px $blue solid;
+    border-radius: 0 0 4px 4px;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-brand:focus,
+.navbar-dark .navbar-brand:hover {
+    background-color: $blue;
+    padding: 7px;
+    border-radius: 4px;
+
+}
+
+
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: .75rem;
+        padding-left: .75rem;
+    }
+}
