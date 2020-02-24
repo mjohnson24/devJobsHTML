@@ -31,7 +31,7 @@ const paths = {
 
 function styles() {
 	return gulp
-		.src(paths.src + 'scss/**/*.scss')
+		.src(paths.src + 'scss/main.scss')
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(sassGlob())
