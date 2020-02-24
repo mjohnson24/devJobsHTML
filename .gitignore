@@ -15,6 +15,7 @@ test/*.log
 
 #GULP FILES
 gulpfile.backup.js
+gulpfile copy.js
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
